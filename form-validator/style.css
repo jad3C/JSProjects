@@ -1,0 +1,127 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+:root {
+	--font-dark: #333;
+	--font-light: #fff;
+
+	--primary-bg-color: #edf4fc;
+	--light-bg-color: #fff;
+
+	--fs-sm: clamp(0.8rem, 0.17vi + 0.76rem, 0.89rem);
+	--fs-base: clamp(1rem, 0.34vi + 0.91rem, 1.19rem);
+	--fs-md: clamp(1.25rem, 0.61vi + 1.1rem, 1.58rem);
+	--fs-lg: clamp(1.56rem, 1vi + 1.31rem, 2.11rem);
+	--fs-xl: clamp(1.95rem, 1.56vi + 1.56rem, 2.81rem);
+	--fs-xxl: clamp(2.44rem, 2.38vi + 1.85rem, 3.75rem);
+	--fs-xxxl: clamp(3.05rem, 3.54vi + 2.17rem, 5rem);
+}
+
+html {
+	-webkit-text-size-adjust: none;
+	text-size-adjust: none;
+	-webkit-font-smoothing: antialiased;
+}
+
+body {
+	font-family: system-ui;
+	min-height: 100svh;
+	color: var(--font-dark);
+	line-height: 1.5;
+	background-color: var(--primary-bg-color);
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+.main {
+	max-inline-size: 450px;
+	width: 100%;
+}
+
+h1 {
+	text-align: center;
+}
+
+form {
+	background-color: var(--light-bg-color);
+	padding: 2em;
+	border-radius: 1.125em;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+	display: flex;
+	flex-direction: column;
+	gap: 1.2rem;
+}
+
+form > div {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+
+input {
+	padding: 0.5rem;
+	border-radius: 0.5em;
+	border: 2px solid #ccc4c4;
+	transition: border-color 0.3s;
+}
+
+input:focus {
+	outline: none;
+	border-color: #bcd6f7;
+}
+
+label {
+	font-size: var(--fs-base);
+	font-weight: 600;
+}
+
+small {
+	visibility: hidden;
+	color: #e90808;
+	position: absolute;
+	bottom: -18px;
+}
+
+button {
+	background-color: #c3dcfa;
+	border: 2px solid #bcd6f7;
+	font-size: var(--fs-base);
+	font-weight: 500;
+	padding-block: 0.5em;
+	border-radius: 0.5em;
+	cursor: pointer;
+	transition: 0.3s all ease;
+}
+
+button:hover {
+	background-color: #dbebff;
+}
+
+.form-group.error input {
+	border-color: #e90808;
+}
+
+.form-group.success input {
+	border-color: #0caf2f;
+}
+
+.form-group.error small {
+	visibility: visible;
+}
