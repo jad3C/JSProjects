@@ -16,6 +16,10 @@
 	--primary-bg-color: #edf4fc;
 	--light-bg-color: #fff;
 
+	--weak-color: #c71f1f;
+	--medium-color: #e09d28;
+	--strong-color: #23ce6b;
+
 	--fs-sm: clamp(0.8rem, 0.17vi + 0.76rem, 0.89rem);
 	--fs-base: clamp(1rem, 0.34vi + 0.91rem, 1.19rem);
 	--fs-md: clamp(1.25rem, 0.61vi + 1.1rem, 1.58rem);
@@ -63,14 +67,38 @@ select {
 h1 {
 	color: #1a2833;
 	text-align: center;
+	font-size: var(--fs-lg);
+	position: relative;
+	margin-bottom: 1rem;
+}
+
+h1::after {
+	content: "";
+	position: absolute;
+	bottom: -5px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 50%;
+	height: 4px;
+	background-color: #1a2833;
+}
+
+.password-container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+	border: 1px solid #d4d4d4;
+	border-radius: 0.5rem;
+	padding-right: 0.2rem;
+	overflow: hidden;
 }
 
 #password {
 	width: 100%;
-	border: 1px solid #d4d4d4;
+	border: none;
 	padding: 0.5rem 1rem;
-	border-radius: 0.5rem;
-	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+	background-color: transparent;
 }
 
 #copy-btn {
@@ -112,17 +140,47 @@ h1 {
 	gap: 0.5rem;
 }
 
+input[type="range"] {
+	accent-color: #1a2833;
+	flex: 1;
+	width: 60%;
+}
+
 .range-container span {
-	color: #1a2833;
+	color: var(--font-light);
 	display: flex;
 	width: 28px;
 	height: 28px;
-	background-color: #edf4fc;
+	background-color: #1a2833;
 	justify-content: center;
 	align-items: center;
 	font-weight: 600;
 	font-size: var(--fs-base);
 	border-radius: 4px;
+}
+
+input[type="checkbox"] {
+	width: 20px;
+	height: 20px;
+	border: 2px solid #1a2833;
+	appearance: none;
+	border-radius: 4px;
+	cursor: pointer;
+	outline: none;
+	position: relative;
+	transition: all 0.3s;
+}
+
+input[type="checkbox"]:checked {
+	background-color: #1b2735;
+	color: var(--font-light);
+}
+
+input[type="checkbox"]:checked::after {
+	content: "\2714";
+	position: absolute;
+	bottom: -4px;
+	left: 2px;
 }
 
 button {
@@ -160,6 +218,6 @@ button:hover {
 .strength-bar {
 	width: 87%;
 	height: 7px;
-	background-color: #23ce6b;
+	background-color: var(--strong-color);
 	border-radius: 5px;
 }
