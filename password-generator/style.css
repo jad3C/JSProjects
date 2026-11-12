@@ -216,8 +216,10 @@ button:hover {
 }
 
 .strength-bar {
-	width: 87%;
+	width: 0;
+	min-width: 5%;
 	height: 7px;
-	background-color: var(--strong-color);
+	background-color: var(--weak-color);
 	border-radius: 5px;
+	transition: all 0.3s ease;
 }
