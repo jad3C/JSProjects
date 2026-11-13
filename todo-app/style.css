@@ -1,0 +1,111 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+:root {
+	--font-dark: #333;
+	--font-light: #fff;
+
+	--primary-bg-color: #edf4fc;
+	--light-bg-color: #fff;
+
+	--fs-sm: clamp(0.8rem, 0.17vi + 0.76rem, 0.89rem);
+	--fs-base: clamp(1rem, 0.34vi + 0.91rem, 1.19rem);
+	--fs-md: clamp(1.25rem, 0.61vi + 1.1rem, 1.58rem);
+	--fs-lg: clamp(1.56rem, 1vi + 1.31rem, 2.11rem);
+	--fs-xl: clamp(1.95rem, 1.56vi + 1.56rem, 2.81rem);
+	--fs-xxl: clamp(2.44rem, 2.38vi + 1.85rem, 3.75rem);
+	--fs-xxxl: clamp(3.05rem, 3.54vi + 2.17rem, 5rem);
+}
+
+html {
+	-webkit-text-size-adjust: none;
+	text-size-adjust: none;
+	-webkit-font-smoothing: antialiased;
+}
+
+body {
+	font-family: system-ui;
+	min-height: 100svh;
+	color: var(--font-dark);
+	line-height: 1.5;
+	background-color: var(--primary-bg-color);
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+.container {
+	max-inline-size: 600px;
+	margin-inline: auto;
+	width: 95%;
+	box-shadow:
+		rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
+		rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+	padding: 7rem 2rem 2rem;
+	border-radius: 1.125rem;
+	background-color: #f7fbff;
+	position: relative;
+	overflow: hidden;
+}
+
+header {
+	background-color: #1d1160;
+	position: absolute;
+	width: 100%;
+	left: 0;
+	top: 0;
+	padding: 1rem 1rem 1.5rem;
+	color: var(--font-light);
+}
+
+h1,
+i {
+	font-size: var(--fs-md);
+}
+
+.todo-input {
+	display: flex;
+	gap: 0.5rem;
+	justify-content: space-between;
+	align-items: center;
+}
+
+input {
+	width: 100%;
+	padding: 0.5rem;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+}
+
+#add-task {
+	background-color: #1d1160;
+	border: none;
+	color: var(--font-light);
+	height: 42px;
+	width: 42px;
+	border: none;
+	border-radius: 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#add-task i {
+	font-size: 1rem;
+}
