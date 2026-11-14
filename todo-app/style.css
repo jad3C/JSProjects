@@ -13,7 +13,7 @@
 	--font-dark: #333;
 	--font-light: #fff;
 
-	--primary-bg-color: #edf4fc;
+	--primary-bg-color: #e6e6fa;
 	--light-bg-color: #fff;
 
 	--fs-sm: clamp(0.8rem, 0.17vi + 0.76rem, 0.89rem);
@@ -57,21 +57,21 @@ select {
 	box-shadow:
 		rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
 		rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
-	padding: 7rem 2rem 2rem;
 	border-radius: 1.125rem;
-	background-color: #f7fbff;
-	position: relative;
+	background-color: #f1f1fa;
 	overflow: hidden;
 }
 
 header {
 	background-color: #1d1160;
-	position: absolute;
-	width: 100%;
-	left: 0;
-	top: 0;
-	padding: 1rem 1rem 1.5rem;
 	color: var(--font-light);
+	padding: 1.3rem 2rem 2rem;
+}
+
+.container > div,
+footer {
+	padding: 1rem 2rem;
+	background-color: var(--light-bg-color);
 }
 
 h1,
@@ -79,11 +79,13 @@ i {
 	font-size: var(--fs-md);
 }
 
-.todo-input {
+.container .todo-input {
 	display: flex;
 	gap: 0.5rem;
 	justify-content: space-between;
 	align-items: center;
+	padding-block: 2rem;
+	background-color: transparent;
 }
 
 input {
@@ -108,4 +110,56 @@ input {
 
 #add-task i {
 	font-size: 1rem;
+}
+
+.filters {
+	border-block: solid 1px rgba(17, 17, 26, 0.1);
+	display: flex;
+	gap: 1rem;
+}
+
+.filter {
+	cursor: pointer;
+	transition: all 0.3s;
+	color: #777;
+}
+
+.filter:hover {
+	color: #1d1160;
+}
+
+.filter.active {
+	border-bottom: 2px solid #1d1160;
+	font-weight: 500;
+	color: #1d1160;
+}
+
+.todos-container {
+	border-bottom: solid 1px rgba(17, 17, 26, 0.1);
+}
+
+.todos-container {
+}
+
+footer {
+	background-color: transparent;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: #777;
+}
+
+#clear-completed {
+	background-color: #ececf8;
+	padding: 0.1rem 0.5rem;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: var(--fs-sm);
+	box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+	transition: all 0.3s;
+}
+
+#clear-completed:hover {
+	color: #fa5252;
 }
