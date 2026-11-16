@@ -65,7 +65,7 @@ select {
 header {
 	background-color: #1d1160;
 	color: var(--font-light);
-	padding: 1.3rem 2rem 2rem;
+	padding: 1.3rem 2rem;
 }
 
 .container > div,
@@ -218,7 +218,7 @@ input:focus {
 	top: 2px;
 	width: 5px;
 	height: 10px;
-	border: solid white;
+	border: solid #fff;
 	border-width: 0 2px 2px 0;
 	transform: rotate(45deg);
 }

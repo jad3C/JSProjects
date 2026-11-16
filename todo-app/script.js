@@ -22,7 +22,11 @@ taskInput.addEventListener("keydown", (e) => {
 
 clearCompletedBtn.addEventListener("click", clearCompleted);
 
-function clearCompleted() {}
+function clearCompleted() {
+	todos = todos.filter((todo) => !todo.completed);
+	saveTodos();
+	renderTodos();
+}
 
 function addTodo(text) {
 	if (text.trim() === "") return;
@@ -36,7 +40,9 @@ function addTodo(text) {
 	todos.push(todo);
 
 	saveTodos();
-	// renderTodos()
+	renderTodos();
+
+	taskInput.value = "";
 }
 
 function saveTodos() {
@@ -62,7 +68,6 @@ function renderTodos() {
 		checkbox.type = "checkbox";
 		checkbox.classList.add("todo-checkbox");
 		checkbox.checked = todo.completed;
-		console.log(checkbox.checked);
 		checkbox.addEventListener("change", () => toggleTodo(todo.id));
 
 		const checkmark = document.createElement("span");
@@ -77,7 +82,7 @@ function renderTodos() {
 
 		const deleteBtn = document.createElement("button");
 		deleteBtn.classList.add("delete-btn");
-		deleteBtn.innerHTML = '<i class"fas fa-times"></i>';
+		deleteBtn.innerHTML = '<i class="fas fa-times"></i>';
 		deleteBtn.addEventListener("click", () => deleteTodo(todo.id));
 
 		todoItem.appendChild(checkboxContainer);
@@ -88,8 +93,23 @@ function renderTodos() {
 	});
 }
 
-function toggleTodo(id) {}
-function deleteTodo(id) {}
+function toggleTodo(id) {
+	todos = todos.map((todo) => {
+		if (todo.id === id) {
+			return { ...todo, completed: !todo.completed };
+		}
+
+		return todo;
+	});
+	saveTodos();
+	renderTodos();
+}
+
+function deleteTodo(id) {
+	todos = todos.filter((todo) => todo.id !== id);
+	saveTodos();
+	renderTodos();
+}
 
 function updateItemsCount() {
 	const uncompletedTodos = todos.filter((todo) => !todo.completed);
@@ -99,6 +119,7 @@ function updateItemsCount() {
 function checkEmptyState() {
 	const filteredTodos = filterTodos(currentFilter);
 	if (filteredTodos.length === 0) emptyState.classList.remove("hidden");
+	else emptyState.classList.add("hidden");
 }
 
 function filterTodos(filter) {
@@ -110,4 +131,43 @@ function filterTodos(filter) {
 		default:
 			return todos;
 	}
+}
+
+filters.forEach((filter) => {
+	filter.addEventListener("click", () => {
+		setActiveFilter(filter.getAttribute("data-filter"));
+	});
+});
+
+function setActiveFilter(filter) {
+	currentFilter = filter;
+
+	filters.forEach((item) => {
+		if (item.getAttribute("data-filter") === filter) {
+			item.classList.add("active");
+		} else {
+			item.classList.remove("active");
+		}
+	});
+
+	renderTodos();
+}
+
+function setDate() {
+	const options = { weekday: "long", month: "short", day: "numeric" };
+	const today = new Date();
+	dateElement.textContent = today.toLocaleDateString("en-US", options);
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+	loadTodos();
+});
+
+function loadTodos() {
+	const storedTodos = localStorage.getItem("todos");
+	if (storedTodos) todos = JSON.parse(storedTodos);
+	renderTodos();
+	updateItemsCount();
+	checkEmptyState();
+	setDate();
 }
