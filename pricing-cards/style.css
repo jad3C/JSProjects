@@ -12,9 +12,12 @@
 :root {
 	--font-dark: #333;
 	--font-light: #fff;
+	--font-gray: #8e8d8d;
 
-	--primary-bg-color: #edf4fc;
-	--light-bg-color: #fff;
+	--primary-bg-color: #060505;
+	--light-bg-color: #1c1a1a;
+
+	--theme-contrast-color: rgb(0, 250, 154);
 
 	--fs-sm: clamp(0.8rem, 0.17vi + 0.76rem, 0.89rem);
 	--fs-base: clamp(1rem, 0.34vi + 0.91rem, 1.19rem);
@@ -34,8 +37,10 @@ html {
 body {
 	font-family: system-ui;
 	min-height: 100svh;
-	color: var(--font-dark);
+	color: var(--font-gray);
 	line-height: 1.5;
+
+	background-color: var(--primary-bg-color);
 }
 
 input,
@@ -45,8 +50,35 @@ select {
 	font: inherit;
 }
 
+ul {
+	list-style: none;
+}
+
 .container {
 	max-inline-size: 1200px;
 	margin-inline: auto;
 	width: 95%;
+}
+
+header > h1,
+header > p {
+	text-align: center;
+}
+
+header > h1 {
+	color: var(--theme-contrast-color);
+}
+
+.pricing-cards {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1.125rem;
+	align-items: center;
+}
+
+.card {
+	background-color: var(--light-bg-color);
+	flex: 1 1 calc(33.333% - 20px);
+	padding: 1.125rem;
+	border-radius: 10px;
 }
