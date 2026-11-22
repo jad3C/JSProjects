@@ -1,0 +1,127 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+:root {
+	--font-dark: #333;
+	--font-light: #fff;
+
+	--primary-bg-color: #edf4fc;
+	--light-bg-color: #fff;
+
+	--theme-color: #febe10;
+
+	--fs-sm: clamp(0.8rem, 0.17vi + 0.76rem, 0.89rem);
+	--fs-base: clamp(1rem, 0.34vi + 0.91rem, 1.19rem);
+	--fs-md: clamp(1.25rem, 0.61vi + 1.1rem, 1.58rem);
+	--fs-lg: clamp(1.56rem, 1vi + 1.31rem, 2.11rem);
+	--fs-xl: clamp(1.95rem, 1.56vi + 1.56rem, 2.81rem);
+	--fs-xxl: clamp(2.44rem, 2.38vi + 1.85rem, 3.75rem);
+	--fs-xxxl: clamp(3.05rem, 3.54vi + 2.17rem, 5rem);
+}
+
+html {
+	-webkit-text-size-adjust: none;
+	text-size-adjust: none;
+	-webkit-font-smoothing: antialiased;
+}
+
+body {
+	font-family: system-ui;
+	min-height: 100svh;
+	font-size: var(--fs-base);
+	color: var(--font-dark);
+	line-height: 1.5;
+	background-color: var(--primary-bg-color);
+}
+
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+.container {
+	max-inline-size: 1200px;
+	margin-inline: auto;
+	width: 95%;
+}
+
+header,
+.api-link,
+.search-container {
+	text-align: center;
+	padding-block: 1.5rem;
+}
+
+header h1,
+header i {
+	color: var(--theme-color);
+}
+
+header h1 {
+	margin-bottom: 1rem;
+}
+
+.api-link a {
+	text-decoration: none;
+	color: var(--theme-color);
+	transition: all 0.3s;
+}
+
+.api-link a:hover {
+	text-decoration: underline;
+}
+
+.search-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0.5rem;
+	flex-wrap: wrap;
+
+	@media (max-width: 768px) {
+		#search-input,
+		#search-btn {
+			max-width: 400px;
+			flex: 1 1 100%;
+		}
+	}
+}
+
+#search-input {
+	flex: 1 1;
+	max-width: 400px;
+	padding: 0.5rem;
+	border: 2px solid #d5d5d5;
+	border-radius: 10px;
+	outline: none;
+}
+
+#search-input:focus {
+	border-color: var(--theme-color);
+}
+
+#search-btn {
+	border: 2px solid var(--theme-color);
+	background-color: var(--theme-color);
+	border-radius: 10px;
+	cursor: pointer;
+	font-weight: 600;
+	padding: 0.5rem 2rem;
+	transition: all 0.3s ease;
+	color: var(--font-light);
+}
+
+#search-btn:hover {
+	background-color: var(--light-bg-color);
+	color: var(--theme-color);
+}
