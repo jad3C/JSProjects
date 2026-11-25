@@ -164,10 +164,11 @@ header h1 {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 	gap: 1.125rem;
+	margin-block: 2rem;
 }
 
 .meal {
-	background-color: #f0e68c;
+	background-color: var(--light-bg-color);
 	border-radius: 10px;
 	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 	overflow: hidden;
@@ -193,12 +194,13 @@ header h1 {
 
 .meal-title {
 	margin-bottom: 0.5rem;
+	font-size: var(--fs-base);
 }
 
 .meal-category {
 	display: inline-block;
-	background-color: #ffd700;
-	padding: 0.1rem 0.3rem;
+	background-color: var(--theme-color);
+	padding: 0.2rem 0.5rem;
 	font-size: var(--fs-sm);
 	border-radius: 50px;
 	margin-bottom: 10px;
@@ -238,7 +240,7 @@ header h1 {
 }
 
 .meal-details-category span {
-	background-color: #f0e68c;
+	background-color: var(--theme-color);
 	padding: 4px 12px;
 	border-radius: 1.125rem;
 	font-size: var(--fs-sm);
@@ -250,6 +252,7 @@ header h1 {
 
 .meal-details-instructions h3 {
 	margin-bottom: 0.5rem;
+	/* font-size: var(--fs-base); */
 }
 
 .ingredients-list {
@@ -264,7 +267,7 @@ header h1 {
 	display: flex;
 	align-items: center;
 	padding: 6px 10px;
-	background-color: #f0e68c;
+	background-color: #eee;
 	border-radius: 10px;
 	font-size: var(--fs-sm);
 }
